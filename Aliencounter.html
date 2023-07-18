@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Aliencounter</title>
+  <script src="https://kit.fontawesome.com/a1a8853140.js" crossorigin="anonymous"></script>
+<style>
+#brain-ctrls > #ctrls-div, .ctrl{
+ display: flex;
+ flex: 1;
+ width: 100%;
+ align-items: center;
+ justify-items: center;
+ height: 70px;
+ border: solid 1px black;
+}
+.inpt-div{
+  width: 50%;
+  text-align: center;
+}
+h3{
+ position: absolute;
+ margin: 0px;
+ display: inline-block;
+ margin-right: 10px; 
+ color: white;
+}
+input[type=range], label{
+ position: relative;
+ margin: 0px;
+ color: white;
+}
+input[type=range]{
+line-height: 15px;
+width: 40%;
+display: inline-block;
+}
+
+#regions{
+ width: 100%;
+ height: 400px;
+ background-image: url('./brain.avif'); 
+ background-size: 70% 90%;
+ background-position: center;
+ background-attatchment: fixed;
+ background-repeat: no-repeat;
+}
+.region{
+position: relative;
+  background-color: gray;
+  height: inherit;
+  width: 49.85%;
+  opacity: .5;
+  background-position: center;
+ background-attatchment: fixed;
+ background-repeat: no-repeat;
+}
+#right-ctrl{
+ background:linear-gradient(white, blue);
+}
+#left-ctrl{
+ background:linear-gradient(white, red);
+
+}
+
+html{
+  background-color: purple;
+}
+#right{
+   float: right;
+ background-color: red;
+   background-image: url('./bulb.png');
+
+}
+#left{
+  float: left;
+  background-color: blue;
+  background-image: url('./blue-gears.gif');
+}
+audio{
+width: 100%;
+}
+#start-btn, button{
+ width: 100%;
+ background-color: purple;
+ color: white;
+}
+#slides-div{
+  width: 100%;
+  display: flex;
+  flex: 1;
+  height: 230px;
+}
+.slide{
+overflow-y: hidden;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+  width: 33%;
+}
+.slide > div{
+top: -10px;
+}
+.peace-img, .rndm-img, .alien-img{
+position: relative;
+  width: 100%;
+  height: inherit;
+  display: inline-block;
+  margin: 0px;
+}
+.alien-img{
+position: relative;
+  height: 220px;
+  width: 100%;
+  display: inline-block;
+  bottom: 10px;
+}
+.rndm-img > img, .peace-img > img, .alien-img > img{
+width: 100%;
+height: inherit;
+position: relative;
+margin: 0px;
+}
+div{
+ border: solid 1px white;
+}
+#earphone-ind{
+  width: 20%;
+  height: 250px;
+  position: absolute;
+  z-index: 5;
+  background-color: lightgray;
+  transform: invert(100%);
+  background-image: url('./headset.jpg'); 
+ background-size: 100% 90%;
+ background-position: center;
+ background-attatchment: fixed;
+ background-repeat: no-repeat;
+ text-align: center;
+ margin: 0px;
+ line-height: 300px;
+ left: 40%;
+ top: 30%;
+ opacity: .4;
+}
+#rndm-slide{
+  background-image: url('./question-mark.png'); 
+ background-size: 50% 120%;
+ background-position: center;
+ background-attatchment: fixed;
+ background-repeat: no-repeat;
+}
+#alien-slide{
+  background-image: url('./alien-icon.png'); 
+ background-size: 50% 90%;
+ background-position: center;
+ background-attatchment: fixed;
+ background-repeat: no-repeat;
+}
+#start-btn{
+ color: white;
+ border: solid 1px white;
+}
+#start-btn > button{
+  background: linear-gradient(white, purple);
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="earphone-ind">
+Headphones in
+</div>
+     <div  id="brain-ctrls">
+            <div id="ctrls-div">
+			<div class="ctrl" id="right-ctrl">
+			<div id="note-ctrl" class="inpt-div">
+           <label>Hemi-Sync Amp:</label>
+           <input min="110" max="200" type="range"/>
+           <h3>110</h3>
+		   </div>
+		   <div id="freq-ctrl" class="inpt-div">
+           <label>Hemi-Sync Freq:</label>
+           <input min="7" max="10" type="range"/>
+           <h3>7</h3>
+		   </div>
+           </div>
+		   <div class="ctrl" id="left-ctrl">
+		   <div id="note-ctrl" class="inpt-div">
+           <label>Hemi-Sync Amp:</label>
+           <input min="110" max="200" type="range"/>
+           <h3>110</h3>
+		   </div>
+		   <div id="freq-ctrl" class="inpt-div">
+           <label>Hemi-Sync Freq:</label>
+           <input min="7" max="10" type="range"/>
+           <h3>7</h3>
+		   </div>
+		  </div>
+		</div>
+        </div>
+			<div id="start-btn">
+				<button onclick="startSync()">start</button>
+</div>
+		<div id="audio-div">
+		  <audio controls src="./yoga_music.mp3" loop="true">
+		  </audio>
+		</div>
+	
+		<div id="regions">
+				  <div class="region" id="left">
+		  
+		  </div>
+		  <div class="region" id="right">
+		     
+		  </div>
+
+		</div>
+		<div id="slides-div">
+		 <div class="slide" id="peace-slide">
+			   <div class="peace-img">
+			 <img src="./peaceful-imagery/beach.gif" alt=""/>
+			 </div>
+			   <div class="peace-img">
+			 <img src="./peaceful-imagery/flowers.gif" alt=""/>
+			 </div>
+			   <div class="peace-img">
+			 <img src="./peaceful-imagery/mountain.gif" alt=""/>
+			 </div>
+			   <div class="peace-img">
+			 <img src="./peaceful-imagery/pier.gif" alt=""/>
+			 </div>
+	
+			  <div class="peace-img">
+			 <img src="./peaceful-imagery/sunset.webp" alt=""/>
+			 </div>
+		  </div>
+		  <div class="slide" id="alien-slide">
+		  <div class="alien-img" title="Gray">
+			 <img src="./alien-types/Gray.jpg" alt="Gray"/>
+			 </div>
+			   <div class="alien-img" title="plieadian">
+			 <img src="./alien-types/Plieadian.jpg" alt="plieadian"/>
+			 </div>
+	 <div class="alien-img" title="anunaki">
+			 <img src="./alien-types/Anunaki.webp" alt="anunaki" />
+			 </div>
+			<div class="alien-img" title="reptillian">
+			 <img src="./alien-types/Reptillian.jpg" alt="reptillian" />
+			 </div>
+			 <div class="alien-img" title="Jesus">
+			 <img src="./alien-types/Jesus.webp" alt="jesus" />
+			 </div>
+		  </div>
+		  <div class="slide" id="rndm-slide">
+		  <div class="rndm-img" style="display: none">
+		     <img src="" alt=""/>
+			 </div>
+		  </div>
+		</div>
+</body>
+<script src="./Aliencounter.js" defer async></script>
+</html>
